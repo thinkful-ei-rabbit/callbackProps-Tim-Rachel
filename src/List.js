@@ -1,6 +1,8 @@
 import React from 'react';
 import Card from './Card'
 import './List.css';
+import ReactDOM from 'react-dom';
+import App from './App';
 
 export default function List(props) {
   return (
@@ -25,4 +27,13 @@ export default function List(props) {
       </div>
     </section>
   )
-}
+};
+
+
+
+
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
