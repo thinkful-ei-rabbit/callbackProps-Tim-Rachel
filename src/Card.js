@@ -9,10 +9,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 export default function Card(props) {
+ 
   return (
     <div className='Card'>
       <button
         type='button'
+        onClick = {()=> props.omit(props.id)}
       >
         delete
       </button>
@@ -20,4 +22,7 @@ export default function Card(props) {
       <p>{props.content}</p>
     </div>
   )
+
+  //cardID
+  //
 }
