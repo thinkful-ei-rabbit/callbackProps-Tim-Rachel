@@ -47,8 +47,43 @@ class App extends Component {
 
 
   // const filteredArr = this.state.store.allCards.filter(itm => itm !== item)
+   handleItem = (listId) => {
+    const id = Math.random().toString(36).substring(2, 4)
+      + Math.random().toString(36).substring(2, 4);
+      console.log('handleItem');
+    const newCard = { 
+      id,
+      title: `Random Card ${id}`,
+      content: 'lorem ipsum',
+    }
+    let allNewCards = {}
+    allNewCards[id]= newCard
+    console.log(allNewCards);
+
+    const allNewObj = {...this.state.store.allCards, ...allNewCards}
+    console.log(allNewObj);
+
+    const test = this.state.store.list[listId]
+    console.log(test);
+    
+
+    //const newArr= [...this.state.store.lists] 
+    //newArr.push(newCard)
+    //console.log(newArr);
 
 
+    //this.setState({
+     // store: {
+       // allCards : allNewObj,
+        //lists : newArr
+     //}
+   // })
+  }
+
+
+
+ 
+    
 
 
 
@@ -65,6 +100,7 @@ class App extends Component {
           {store.lists.map(list => (
             <List
               omit={this.omit}
+            handleItem = {this.handleItem}
               key={list.id}
               header={list.header}
               cards={list.cardIds.map(id => store.allCards[id])}
